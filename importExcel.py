@@ -2,7 +2,6 @@ import xlrd2
 import json
 from pymongo import MongoClient
 from import_excel_complex import excel_to_mongodb_complex as import_target
-
 def excel_to_mongodb(host,port,collection,username,password,list,name):
     # 连接数据库
     client = MongoClient(host=host, port=port,username=username,password=password)
@@ -80,6 +79,7 @@ def search_many(host,port,db,collection,username,password,fliter):
 if __name__ == '__main__':
     #变量初始化
         #本地变量
+<<<<<<< HEAD
     # host="localhost"
     # port=27017
     # db="PharmRG"
@@ -112,3 +112,27 @@ if __name__ == '__main__':
     # search_many(host,port,db,search_collection,username,password,fliter)
     # excel_to_mongodb(host,port,import_collection,username,password,import_list,import_url)
     import_target(host,port,import_collection,username,password,signal,list1,list2,import_url)
+=======
+    host="localhost"
+    port=27017
+    db="PharmRG"
+    username=''
+    password=''
+        #远程连接
+    # host = "117.73.10.251"
+    # port = 27017
+    # db = "PharmRG"
+    # username = 'readwrite'
+    # password = 'readwrite'
+    #search功能变量
+    search_collection="TTD_uniport_id_all"
+    fliter={"TARGTYPE":"Clinical Trial target"}
+    #import功能变量
+    import_collection = "TTD_Drug-TargetMapping"
+    import_list=['TargetID','DrugID','Highest_status','MOA']
+    import_url='D:\桌面\学校\PharmRG科研\TTD_data\处理表格\P1-07-Drug-TargetMapping.xlsx'
+
+    # search_one(host,port,db,search_collection,username,password,fliter)
+    # search_many(host,port,db,search_collection,username,password,fliter)
+    excel_to_mongodb(host,port,import_collection,username,password,import_list,import_url)
+>>>>>>> 6100893974c045aebfe8c6fa0ce632f795fa382d
