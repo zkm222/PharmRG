@@ -86,3 +86,7 @@ def updateOne(host,port,db_name,username,password,collection_name,filter,update)
     result = collection.update_one(filter,{"$set":update})
 #qwq
 #qwqwqwqw
+qwq=[]
+qwq.append('1')
+qwq.append('1')
+print(qwq)
