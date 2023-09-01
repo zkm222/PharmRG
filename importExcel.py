@@ -2,6 +2,7 @@ import xlrd2
 import json
 from pymongo import MongoClient
 from import_excel_complex import excel_to_mongodb_complex as import_target
+from import_excel_complex2 import excel_to_mongodb_complex2 as import_target2
 
 def excel_to_mongodb(host,port,collection,username,password,list,name):
     # 连接数据库
@@ -80,35 +81,40 @@ def search_many(host,port,db,collection,username,password,fliter):
 if __name__ == '__main__':
     #变量初始化
         #本地变量
-    # host="localhost"
-    # port=27017
-    # db="PharmRG"
-    # username=''
-    # password=''
+    host="localhost"
+    port=27017
+    db="PharmRG"
+    username=''
+    password=''
         #远程连接
-    host = "117.73.10.251"
-    port = 27017
-    db = "PharmRG"
-    username = 'readwrite'
-    password = 'readwrite'
+    # host = "117.73.10.251"
+    # port = 27017
+    # db = "PharmRG"
+    # username = 'readwrite'
+    # password = 'readwrite'
 
     #search功能变量
     search_collection="TTD_uniport_id_all"
     fliter={"TARGTYPE":"Clinical Trial target"}
 
     #import功能变量
-    import_collection = "TTD_drug"
+    import_collection = "TTD_Drug_synonyms"
     import_list=[]
-    import_url='D:\桌面\学校\PharmRG科研\TTD_data\处理表格\P1-02-TTD_drug_download.xlsx'
+    import_url='D:\桌面\学校\PharmRG科研\TTD_data\处理表格\P1-04-Drug_synonyms.xlsx'
 
     #import_excel变量
-    signal='DRUGID'
-    list1=['DRUG__ID','TRADNAME','DRUGCOMP','THERCLAS','DRUGTYPE','DRUGINCH','DRUGINKE',
-            'DRUGSMIL','HIGHSTAT','DRUGCLAS','DRUADIID','COMPCLAS']
-    list2=[]
+    signal='TTDDRUID'
+    list1=['DRUGNAME']
+    list2=['INDICATI']
 
+    # import_excel变量
+    signal2 = 'KEY'
+    list3 = ['TTDDRUID','DRUGNAME']
+    list4 = ['SYNONYMS']
     #方法操作区
     # search_one(host,port,db,search_collection,username,password,fliter)
     # search_many(host,port,db,search_collection,username,password,fliter)
     # excel_to_mongodb(host,port,import_collection,username,password,import_list,import_url)
-    import_target(host,port,import_collection,username,password,signal,list1,list2,import_url)
+    # import_target(host,port,import_collection,username,password,signal,list1,list2,import_url)
+    import_target2(host,port,import_collection,username,password,signal2,list3,list4,import_url)
+

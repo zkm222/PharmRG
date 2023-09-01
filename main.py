@@ -12,5 +12,10 @@ def print_hi(name):
 # 按间距中的绿色按钮以运行脚本。
 if __name__ == '__main__':
     print_hi('PyCharm')
+    x=1
+    for i in range(0,9):
+        print(i)
+        x=(x+1)*2
+    print(x)
 
 # 访问 https://www.jetbrains.com/help/pycharm/ 获取 PyCharm 帮助
