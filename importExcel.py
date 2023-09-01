@@ -81,11 +81,13 @@ def search_many(host,port,db,collection,username,password,fliter):
 if __name__ == '__main__':
     #变量初始化
         #本地变量
+
     host="localhost"
     port=27017
     db="PharmRG"
     username=''
     password=''
+
         #远程连接
     # host = "117.73.10.251"
     # port = 27017
@@ -117,4 +119,5 @@ if __name__ == '__main__':
     # excel_to_mongodb(host,port,import_collection,username,password,import_list,import_url)
     # import_target(host,port,import_collection,username,password,signal,list1,list2,import_url)
     import_target2(host,port,import_collection,username,password,signal2,list3,list4,import_url)
+
 
